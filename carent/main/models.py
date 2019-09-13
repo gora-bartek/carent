@@ -1,4 +1,7 @@
 from django.db import migrations, models
+from datetime import datetime
+from datetime import timedelta
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Car(models.Model):
@@ -12,3 +15,13 @@ class Car(models.Model):
 
     def __str__(self):
         return self.car_brand
+
+class Rental(models.Model):
+    rental_id = models.AutoField(primary_key=True)
+    rental_user = models.ForeignKey('auth.User', default=1, on_delete=models.SET_DEFAULT)
+    rental_car = models.ForeignKey(Car, default=1, on_delete=models.SET_DEFAULT)
+    rental_start_date = models.DateField("rental_date", default = datetime.now())
+    rental_due_date = models.DateField("rental_date", default = datetime.now() + timedelta(days=1))
+
+    def __str_(self):
+        return self.rental_id

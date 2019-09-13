@@ -1,4 +1,5 @@
 from django import forms
+from .models import Rental
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -15,3 +16,9 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class RentCarForm(forms.ModelForm):
+
+    class Meta:
+        model = Rental
+        fields = ('rental_id', 'rental_user', 'rental_car', 'rental_start_date', 'rental_due_date',)

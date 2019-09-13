@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Car
+from .models import Rental
 
 class CarAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -8,5 +9,5 @@ class CarAdmin(admin.ModelAdmin):
         ("Car photo", {"fields": ["car_pic"]})
     ]
 
-
 admin.site.register(Car, CarAdmin)
+admin.site.register(Rental)

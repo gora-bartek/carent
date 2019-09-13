@@ -53,3 +53,7 @@ def login_request(request):
     return render(request,
                   "main/login.html",
                   {"form": form})
+
+#def rent_request(request):
+#    if request.method == "POST":
+#        form = PostForm(request.POST)

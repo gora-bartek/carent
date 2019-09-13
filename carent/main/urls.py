@@ -25,6 +25,7 @@ urlpatterns = [
     path("register/", views.register, name="register"),
     path("logout/", views.logout_request, name="logout"),
     path("login/", views.login_request, name="login"),
+    #path("rent/", views.rent, name="rent"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
