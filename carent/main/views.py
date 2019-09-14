@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
-from .models import Car
+from .models import Car, Rental
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
-from .forms import NewUserForm
+from .forms import NewUserForm, RentalForm
+
 
 def homepage(request):
-    return render(request = request,
+    return render(request=request,
                   template_name="main/home.html",
                   context={"cars": Car.objects.all})
+
 
 def register(request):
     if request.method == "POST":
@@ -28,10 +30,12 @@ def register(request):
                   "main/register.html",
                   context={"form": form})
 
+
 def logout_request(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
     return redirect("main:homepage")
+
 
 def login_request(request):
     if request.method == "POST":
@@ -54,6 +58,12 @@ def login_request(request):
                   "main/login.html",
                   {"form": form})
 
-#def rent_request(request):
-#    if request.method == "POST":
-#        form = PostForm(request.POST)
+
+def rental_request(request):
+    if request.method == "POST":
+        form = RentalForm(request.POST)
+
+    form = RentalForm
+    return render(request,
+                  "main/rental.html",
+                  {"form": form})

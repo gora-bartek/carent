@@ -3,19 +3,19 @@
 {% block content %}
 <div class="row">
     {% for car in cars %}
-    <div class="row">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img src="{{car.car_pic.url}}">
-          <span class="card-title">{{car.car_brand}} {{car.car_model}}</span>
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{car.car_pic.url}}">
+                        <span class="card-title">{{car.car_brand}} {{car.car_model}}</span>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Rent</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-action">
-          <a href="#">Rent</a>
-        </div>
-      </div>
-    </div>
-  </div>
     {% endfor %}
 </div>
 {% endblock %}

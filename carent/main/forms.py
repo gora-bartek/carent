@@ -17,8 +17,8 @@ class NewUserForm(UserCreationForm):
             user.save()
         return user
 
-class RentCarForm(forms.ModelForm):
+class RentalForm(forms.Form):
 
     class Meta:
         model = Rental
-        fields = ('rental_id', 'rental_user', 'rental_car', 'rental_start_date', 'rental_due_date',)
+        fields = ('rental_car', 'rental_start_date', 'rental_due_date',)
